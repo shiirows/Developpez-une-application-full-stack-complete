@@ -38,23 +38,7 @@
 			<scope>test</scope>
 		</dependency>
 		
-<dependency>
-        <groupId>com.github.ulisesbocchio</groupId>
-        <artifactId>jasypt-spring-boot-starter</artifactId>
-        <version>3.0.5</version>
-</dependency>
 
-<dependency>
-        <groupId>com.github.ulisesbocchio</groupId>
-        <artifactId>jasypt-spring-boot</artifactId>
-        <version>3.0.5</version>
-</dependency>
-
-    <dependency>
-        <groupId>org.springframework.vault</groupId>
-        <artifactId>spring-vault-core</artifactId>
-        <version>3.0.2</version>
-    </dependency>
 
 
 	</dependencies>
@@ -66,12 +50,6 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			
-			
-                <plugin>
-                 <groupId>com.github.ulisesbocchio</groupId>
-                <artifactId>asypt-maven-plugin</artifactId>
-                <version>3.0.5</version>
-          </plugin>
 
 		</plugins>
 	</build>
