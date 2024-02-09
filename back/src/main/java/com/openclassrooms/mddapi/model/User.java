@@ -32,19 +32,19 @@ public class User {
 
 	/* on genere un nom d'utilisateur avec un max size de 20 caractere */
 	@NotBlank(message = "Le mail est obligatoire")
-	@Size(max = 100)
+	@Size(max = 50)
 	@Email
 	@NotNull
 	private String email;
 
 	/* on genere un mots de passe d'utilisateur avec un max size de 120 caractere */
 	@NotBlank(message = "Le mot de passe est obligatoire")
-	@Size(max = 120)
+	@Size(max = 200)
 	@NotNull
 	private String password;
 
 	@NotBlank(message = "Le mot de passe est obligatoire")
-	@Size(max = 120)
+	@Size(max = 20)
 	@NotNull
 	private String username;
 
@@ -74,6 +74,22 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public Set<Subject> getSubscription() {
+		return subscription;
+	}
+
+	public void setSubscription(Set<Subject> subscription) {
+		this.subscription = subscription;
 	}
 
 }
