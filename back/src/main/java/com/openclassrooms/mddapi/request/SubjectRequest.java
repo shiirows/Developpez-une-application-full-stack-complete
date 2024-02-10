@@ -1,6 +1,5 @@
 package com.openclassrooms.mddapi.request;
 
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -12,7 +11,6 @@ public class SubjectRequest {
 
 	@NotBlank
 	@Size(max = 1000)
-	@Email
 	private String description;
 
 	public String getName() {
