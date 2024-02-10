@@ -14,7 +14,6 @@ public class UserInfoConvert {
 
 		UserInfoDto dto = new UserInfoDto();
 
-		dto.setId(user.getId());
 		dto.setUsername(user.getUsername());
 		dto.setEmail(user.getEmail());
 		return dto;

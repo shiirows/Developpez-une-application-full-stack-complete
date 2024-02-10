@@ -47,7 +47,6 @@ public class AuthService {
 		user.setPassword(passwordEncoder.encode(signupRequest.getPassword()));
 		
 		userRepository.save(user);
-		System.out.println("coucou");
 		UserSigninRequest signinRequest = new UserSigninRequest();
 
 		signinRequest.setEmail(signupRequest.getEmail());
