@@ -33,10 +33,6 @@ public class Subject {
 	@ManyToMany(mappedBy = "subscription")
 	Set<User> subscription;
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "user_id")
-	@NotNull
-	private User user;
 
 	public Long getId() {
 		return id;
@@ -70,12 +66,5 @@ public class Subject {
 		this.subscription = subscription;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
 
 }
