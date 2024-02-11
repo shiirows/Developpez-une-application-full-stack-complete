@@ -65,7 +65,9 @@ public class ArticleService {
 		return convert.entityToDto(article);
 	}
 	
-	public ArticleResponse getArticleBySubjectId(Long id) {
+	
+	// tout les articles d'un théme
+	public ArticleResponse getAllArticleBySubjectId(Long id) {
 		
 		List<Article> articles = articleRespository.findBySubject_id(id);
 		List<ArticleDto> articleDto = convert.entityToDto(articles);
