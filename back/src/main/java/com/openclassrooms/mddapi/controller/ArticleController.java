@@ -68,11 +68,11 @@ public class ArticleController {
 	}
 	
 	@GetMapping("/subject/{id}")
-	public ResponseEntity<?> getArticleBySubjectId(@PathVariable Long id) {
+	public ResponseEntity<?> getAllArticleBySubjectId(@PathVariable Long id) {
 
 		try {
 
-			return new ResponseEntity<>(articleService.getArticleBySubjectId(id), HttpStatus.OK);
+			return new ResponseEntity<>(articleService.getAllArticleBySubjectId(id), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.CONFLICT);
 		}
