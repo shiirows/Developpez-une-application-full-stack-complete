@@ -3,6 +3,7 @@ import java.util.Date;
 
 public class ArticleDto {
 
+	private Long id;
 	private String content;
 	private String titre;
 	private Date createdate;
@@ -39,6 +40,12 @@ public class ArticleDto {
 	}
 	public void setSubjectname(String subjectname) {
 		this.subjectname = subjectname;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }
