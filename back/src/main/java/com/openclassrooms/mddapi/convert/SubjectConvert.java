@@ -2,9 +2,7 @@ package com.openclassrooms.mddapi.convert;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.springframework.stereotype.Component;
-
 import com.openclassrooms.mddapi.DTO.SubjectDto;
 import com.openclassrooms.mddapi.model.Subject;
 
@@ -26,7 +24,5 @@ public class SubjectConvert {
 		return subjectInfo.stream().map(x -> entityToDto(x)).collect(Collectors.toList());
 
 	}
-	
-	
 
 }

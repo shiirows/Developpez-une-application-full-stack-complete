@@ -2,7 +2,6 @@ package com.openclassrooms.mddapi.convert;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.springframework.stereotype.Component;
 import com.openclassrooms.mddapi.DTO.CommentDto;
 import com.openclassrooms.mddapi.model.Comments;

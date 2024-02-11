@@ -16,33 +16,32 @@ import com.openclassrooms.mddapi.request.ArticleRequest;
 import com.openclassrooms.mddapi.security.WebSecurityConfig;
 import com.openclassrooms.mddapi.service.ArticleService;
 
-
 @RestController
 @CrossOrigin
 @RequestMapping("/api/article")
 public class ArticleController {
-	
-	
+
 	@Autowired
 	ArticleService articleService;
-	
+
 	@Autowired
 	ArticleRespository articleRespository;
-	
+
 	@Autowired
-    WebSecurityConfig config;
-	
+	WebSecurityConfig config;
+
 	@PostMapping("")
-	public ResponseEntity<?> createArticle( @RequestBody ArticleRequest articleRequest) {
+	public ResponseEntity<?> createArticle(@RequestBody ArticleRequest articleRequest) {
 
 		try {
-			
-			return new ResponseEntity<>(articleService.createArticle(config.authentification(),articleRequest), HttpStatus.OK);
+
+			return new ResponseEntity<>(articleService.createArticle(config.authentification(), articleRequest),
+					HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.CONFLICT);
-	}		
-}
-	
+		}
+	}
+
 	@GetMapping("")
 	public ResponseEntity<?> getAllArticle() {
 
@@ -54,7 +53,7 @@ public class ArticleController {
 		}
 
 	}
-	
+
 	@GetMapping("/{id}")
 	public ResponseEntity<?> getArticleId(@PathVariable Long id) {
 
@@ -66,7 +65,7 @@ public class ArticleController {
 		}
 
 	}
-	
+
 	@GetMapping("/subject/{id}")
 	public ResponseEntity<?> getAllArticleBySubjectId(@PathVariable Long id) {
 

@@ -2,9 +2,7 @@ package com.openclassrooms.mddapi.convert;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.springframework.stereotype.Component;
-
 import com.openclassrooms.mddapi.DTO.ArticleDto;
 import com.openclassrooms.mddapi.model.Article;
 
@@ -24,14 +22,13 @@ public class ArticleConvert {
 
 		return dto;
 	}
-	
-	
+
 	public List<ArticleDto> entityToDto(List<Article> article) {
 
 		return article.stream().map(x -> entityToDtoList(x)).collect(Collectors.toList());
 
 	}
-	
+
 	public ArticleDto entityToDtoList(Article article) {
 
 		ArticleDto dto = new ArticleDto();
@@ -44,7 +41,5 @@ public class ArticleConvert {
 
 		return dto;
 	}
-	
-	
 
 }

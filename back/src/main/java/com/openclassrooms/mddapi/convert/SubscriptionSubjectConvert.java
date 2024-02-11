@@ -5,12 +5,10 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import com.openclassrooms.mddapi.DTO.SubjectDto;
 import com.openclassrooms.mddapi.model.Subject;
 import com.openclassrooms.mddapi.model.User;
 import com.openclassrooms.mddapi.repository.UserRepository;
-
 
 @Component
 public class SubscriptionSubjectConvert {

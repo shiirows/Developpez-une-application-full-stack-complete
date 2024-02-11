@@ -19,21 +19,20 @@ import com.openclassrooms.mddapi.response.MessageResponse;
 import com.openclassrooms.mddapi.security.WebSecurityConfig;
 import com.openclassrooms.mddapi.service.AuthService;
 
-
 @RestController
 @CrossOrigin
 @RequestMapping("/api/auth")
 public class AuthController {
-	
+
 	@Autowired
 	AuthService authService;
-	
+
 	@Autowired
 	UserRepository userRepository;
-	
+
 	@Autowired
 	WebSecurityConfig config;
-	
+
 	@PostMapping("/register")
 	public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signupRequest) {
 
