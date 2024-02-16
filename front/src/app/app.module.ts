@@ -11,13 +11,16 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { LogInterceptor } from './LogInterceptor';
 import { RegistrationComponent } from './pages/registration/registration.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon'; 
 
 @NgModule({
   declarations: [
     AppComponent, 
     HomeComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
 
   ],
 
@@ -29,13 +32,20 @@ import { RegistrationComponent } from './pages/registration/registration.compone
     CommonModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule
+
 
   ],
   providers: [    {
     provide: HTTP_INTERCEPTORS,
     useClass: LogInterceptor,
-    multi: true
+    multi: true,
+    
+
+    
   }],
   bootstrap: [AppComponent],
 })

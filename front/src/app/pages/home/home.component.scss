@@ -3,5 +3,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column; // Maintain vertical alignment
+}
+
+.button-container {
+  display: flex; // Wrap buttons horizontally
+  justify-content: space-between; // Distribute evenly within container
+  margin: 0 auto; // Center container within parent div
+}
+
+
+.button-container button:first-child {
+  margin-right: 20px;
+}
+
+.button-container button:last-child {
+  margin-left: 20px;
 }

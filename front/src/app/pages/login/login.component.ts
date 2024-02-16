@@ -7,7 +7,7 @@ import { TokenService } from '../../common/TokenService';
 @Component({
   selector: 'app-connexion',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  styleUrls: ['./login.component.scss'],
 })
 
 export class LoginComponent implements OnInit {
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   public messageError?: string;
   public erreur: boolean = false;
-  public userForm: any;
+  public loginForm: any;
   public roles: string[] = [];
 
   ngOnInit(): void {
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   }
 
   public initForm() {
-    this.userForm = this.formB.group({
+    this.loginForm = this.formB.group({
       email: ['mazoyeralexdandre@hotmail.fr', [Validators.required, Validators.minLength(3)]],
       passwordUser: [
         'test!31',
@@ -45,9 +45,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  public onsubmit() {
-    let email: string = this.userForm.get('email').value;
-    let password: string = this.userForm.get('passwordUser').value;
+  public onSubmit() {
+    let email: string = this.loginForm.get('email').value;
+    let password: string = this.loginForm.get('passwordUser').value;
 
     // APPEL AU SERVICE POUR FAIRE APPAEL AU BACK POUR VERIFIER L'UTILISATEUR
     this.service.signin(email, password).subscribe(
