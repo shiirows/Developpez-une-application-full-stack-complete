@@ -5,16 +5,38 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { LogInterceptor } from './LogInterceptor';
+import { RegistrationComponent } from './pages/registration/registration.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [
+    AppComponent, 
+    HomeComponent,
+    LoginComponent,
+    RegistrationComponent
+
+  ],
+
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
+    CommonModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    AppRoutingModule
+
   ],
-  providers: [],
+  providers: [    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: LogInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
