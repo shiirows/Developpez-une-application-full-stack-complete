@@ -1,0 +1,20 @@
+<header class="navbar">
+    <div class="logo">
+      <img src="/assets/logo_p6.png" alt="Logo">
+    </div>
+    <nav class="nav-links">
+      <a routerLink="Article">Article</a>
+      <a routerLink="Thèmes">Théme</a>
+    </nav>
+    <button mat-icon-button class="burger-menu" [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div class="profile-picture">
+      <img src="/assets/pictureprofile.png" alt="Photo de profil">
+    </div>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="Article">Accueil</button>
+      <button mat-menu-item routerLink="Thèmes">Produits</button>
+    </mat-menu>
+  </header>
+  

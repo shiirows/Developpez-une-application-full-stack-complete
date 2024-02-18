@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
   public initForm() {
     this.loginForm = this.formB.group({
       email: ['', [Validators.required, Validators.minLength(3)]],
-      passwordUser: [
+      password: [
         '',
         [
           Validators.required,
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
 
   public onSubmit() {
     let email: string = this.loginForm.get('email').value;
-    let password: string = this.loginForm.get('passwordUser').value;
+    let password: string = this.loginForm.get('password').value;
 
     // APPEL AU SERVICE POUR FAIRE APPAEL AU BACK POUR VERIFIER L'UTILISATEUR
     this.service.signin(email, password).subscribe(

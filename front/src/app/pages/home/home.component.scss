@@ -1,22 +1,29 @@
 .center {
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column; // Maintain vertical alignment
+  flex-direction: column; 
+  padding: 20px; /* Ajout de padding pour éviter que le contenu ne soit collé aux bords */
 }
 
 .button-container {
-  display: flex; // Wrap buttons horizontally
-  justify-content: space-between; // Distribute evenly within container
-  margin: 0 auto; // Center container within parent div
+  display: flex;
+  justify-content: center; /* Centrer les boutons horizontalement */
+  margin-top: 20px; 
+  max-width: 100%; /* Assurez-vous que la container ne dépasse pas la largeur de l'écran */
 }
 
-
-.button-container button:first-child {
-  margin-right: 20px;
+.button-container button {
+  margin: 0 10px; /* Ajoutez de l'espace entre les boutons */
 }
 
-.button-container button:last-child {
-  margin-left: 20px;
+@media screen and (max-width: 768px) {
+  .button-container {
+    flex-direction: column; /* Empilez les boutons verticalement sur les écrans plus petits */
+    align-items: center; /* Centrer les boutons verticalement */
+  }
+
+  .button-container button {
+    margin: 10px 0; /* Ajoutez de l'espace entre les boutons */
+  }
 }

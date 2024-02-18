@@ -13,7 +13,10 @@ import { LogInterceptor } from './LogInterceptor';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon'; 
+import { MatIconModule } from '@angular/material/icon';
+import { NavbarComponent } from './pages/navbar/navbar.component'; 
+import { MatMenuModule } from '@angular/material/menu';
+import { ArticlesComponent } from './pages/articles/articles.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,8 @@ import { MatIconModule } from '@angular/material/icon';
     HomeComponent,
     LoginComponent,
     RegistrationComponent,
+    NavbarComponent,
+    ArticlesComponent,
 
   ],
 
@@ -35,7 +40,8 @@ import { MatIconModule } from '@angular/material/icon';
     AppRoutingModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatMenuModule 
 
 
   ],
