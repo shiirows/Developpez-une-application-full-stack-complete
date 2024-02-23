@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { themes } from 'src/app/model/Themes';
 
 @Component({
   selector: 'app-themes',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./themes.component.scss']
 })
 export class ThemesComponent implements OnInit {
+
+  public themes: themes [] = [];
 
   constructor() { }
 

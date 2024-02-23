@@ -1,1 +1,14 @@
-<p>themes works!</p>
+<button routerLink="register" mat-raised-button color="Primary" class="create-article-button">Créer un article</button>
+
+<div class="grid">
+<div class="articles-container">
+  <mat-card *ngFor="let article of themes" class="article" mat-elevation="4">
+    <mat-card-header>
+      <mat-card-title>{{ article.name }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="content">{{ article.description }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
+ </div>
