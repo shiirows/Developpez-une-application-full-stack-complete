@@ -18,6 +18,7 @@ import { NavbarComponent } from './pages/navbar/navbar.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { ArticlesComponent } from './pages/articles/articles.component';
 import {MatCardModule} from '@angular/material/card';
+import { ThemesComponent } from './pages/themes/themes.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {MatCardModule} from '@angular/material/card';
     RegistrationComponent,
     NavbarComponent,
     ArticlesComponent,
+    ThemesComponent,
 
   ],
 
