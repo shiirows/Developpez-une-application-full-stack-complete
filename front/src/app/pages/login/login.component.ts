@@ -58,6 +58,7 @@ console.log(param.token);
         this.tokenService.saveToken(param.token);
         console.log(this.tokenService.getUser().user);
         window.location.reload();
+        this.route.navigate(['']);
       },
       (error) => {
         this.erreur = true;

@@ -1,0 +1,36 @@
+.articles-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+  
+}
+
+.article {
+  width: 359px;
+  height: 180px;
+  border-radius: 8px;
+  margin: 10px; 
+  background-color: #F5F5F5;
+  overflow: hidden; 
+  cursor: pointer;
+}
+
+.article .content {
+  text-align: left;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 6; 
+  -webkit-box-orient: vertical;
+  
+}
+
+.content {
+  text-align: center; 
+}
+
+.create-article-button{
+  background-color: #7763C5 ;
+  color: white;
+}
+

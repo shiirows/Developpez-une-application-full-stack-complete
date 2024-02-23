@@ -17,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { NavbarComponent } from './pages/navbar/navbar.component'; 
 import { MatMenuModule } from '@angular/material/menu';
 import { ArticlesComponent } from './pages/articles/articles.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ArticlesComponent } from './pages/articles/articles.component';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    MatMenuModule 
+    MatMenuModule,
+    MatCardModule
 
 
   ],
