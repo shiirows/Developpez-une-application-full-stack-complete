@@ -1,4 +1,4 @@
-export class themes {
+export class Themes {
     id: number;
     name : string;
     description : string;

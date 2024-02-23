@@ -1,20 +1,20 @@
 <header class="navbar">
     <div class="logo">
-      <img src="/assets/logo_p6.png" alt="Logo">
+      <img  src="/assets/logo_p6.png" alt="Logo">
     </div>
-    <nav class="nav-links">
+    <nav *ngIf="estConnecter != null" class="nav-links">
       <a routerLink="articles">Article</a>
       <a routerLink="themes">Théme</a>
     </nav>
-    <button mat-icon-button class="burger-menu" [matMenuTriggerFor]="menu">
+    <button *ngIf="estConnecter != null" mat-icon-button class="burger-menu" [matMenuTriggerFor]="menu">
       <mat-icon>menu</mat-icon>
     </button>
-    <div class="profile-picture">
+    <div *ngIf="estConnecter != null" class="profile-picture">
       <img src="/assets/pictureprofile.png" alt="Photo de profil">
     </div>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLink="Article">Accueil</button>
-      <button mat-menu-item routerLink="Thèmes">Produits</button>
+    <mat-menu  #menu="matMenu">
+      <button [routerLink]="['/articles']" mat-menu-item>Article</button>
+      <button [routerLink]="['/themes']"  mat-menu-item>Théme</button>
     </mat-menu>
   </header>
   

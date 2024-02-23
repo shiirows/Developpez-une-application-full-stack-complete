@@ -36,10 +36,9 @@ export class NavbarComponent implements OnInit {
   public userAfiche() {
     if (this.serviceToken.getUser().token == null) {
       this.route.navigate(['']);
-      console.log(this.serviceToken.getUser().userInfo);
+      this.estConnecter = null;
     } else {
       this.route.navigate(['/articles']);
-      console.log(this.serviceToken.getUser().userInfo);
     }
     //VERIFICATION DU ROLE DE L'UTILISATEUR EN COUR POUR LUI AFFICHER OU PAS LE BOUTON ADMIN
   }
