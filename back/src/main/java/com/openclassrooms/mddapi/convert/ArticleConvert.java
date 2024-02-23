@@ -36,6 +36,7 @@ public class ArticleConvert {
 		dto.setId(article.getId());
 		dto.setContent(article.getContent());
 		dto.setCreatedate(article.getCreatedate());
+		dto.setSubjectname(article.getSubject().getName());
 		dto.setTitre(article.getTitre());
 		dto.setUsername(article.getUser().getUsername());
 
