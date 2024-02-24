@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ThemeService } from 'src/app/common/SubjectService';
-import { Themes } from 'src/app/model/Subjects';
+import { Subjects } from 'src/app/model/Subjects';
 
 @Component({
   selector: 'app-themes',
@@ -9,7 +9,7 @@ import { Themes } from 'src/app/model/Subjects';
 })
 export class ThemesComponent implements OnInit {
 
-  public subjects: Themes [] = [];
+  public subjects: Subjects [] = [];
 
   constructor(
     private themeService: ThemeService

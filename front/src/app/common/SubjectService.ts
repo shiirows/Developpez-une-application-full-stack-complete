@@ -6,7 +6,7 @@ import { User } from '../model/User';
 
 import { environment } from 'src/environments/environment';
 import { Article } from '../model/Articles';
-import { Themes } from '../model/Subjects';
+import { Subjects } from '../model/Subjects';
 
 
 @Injectable({
@@ -27,13 +27,13 @@ export class ThemeService {
 
 
   //METHODE POUR RECUPERER LES ARTICLES
-  public getSubject( ): Observable<Themes> { 
-    return this.http.get<Themes>(this.urlApi ,this.httpOptions);
+  public getSubject( ): Observable<Subjects> { 
+    return this.http.get<Subjects>(this.urlApi ,this.httpOptions);
   }
 
 
-  public addSubject(id:Number) : Observable<Themes> {
-    return this.http.post<Themes>(this.urlApi + "favoris/" + id, this.httpOptions);
+  public addSubject(id:Number) : Observable<Subjects> {
+    return this.http.post<Subjects>(this.urlApi + "favoris/" + id, this.httpOptions);
   }
 
 

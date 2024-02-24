@@ -1,0 +1,85 @@
+.container {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Utilisation de min-height au lieu de height pour garantir que le conteneur occupe au moins toute la hauteur de la fenêtre */
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin-bottom: 10px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  input, select, textarea {
+    max-width: 350px; /* Ajout de max-width pour limiter la largeur pour une meilleure lisibilité */
+    height: 40px;
+    border: 1px solid #000000;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  textarea {
+    height: 212px;
+  }
+  
+  button {
+    width: 139px;
+    max-width: 128px; /* Ajout de max-width pour limiter la largeur du bouton */
+    background-color: #7763C5;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+  
+  button:hover {
+    background-color: #333;
+  }
+  
+  .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #000;
+  }
+  
+  .back-button:hover {
+    color: #333;
+  }
+  
+  /* Media Queries pour la responsivité */
+  @media screen and (max-width: 768px) {
+    .form {
+      width: 90%;
+    }
+  }
+  

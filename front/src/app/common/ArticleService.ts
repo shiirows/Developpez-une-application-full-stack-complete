@@ -6,6 +6,7 @@ import { User } from '../model/User';
 
 import { environment } from 'src/environments/environment';
 import { Article } from '../model/Articles';
+import { ArticleRequest } from '../model/ArticleRequest';
 
 
 @Injectable({
@@ -22,7 +23,7 @@ export class ArticleService {
   constructor(private http: HttpClient) {}
 
   //LES DIFFERENTS URL DU BACK
-  public urlApi: string = environment.apiUrl + 'article/';
+  public urlApi: string = environment.apiUrl + 'article';
 
 
   //METHODE POUR RECUPERER LES ARTICLES
@@ -31,7 +32,8 @@ export class ArticleService {
   }
 
 
-  public createArticle()  {
+  public createArticle(articleRequest : ArticleRequest) : Observable<Article> {
+    return this.http.post<Article>(this.urlApi, articleRequest, this.httpOptions);
   }
 
 

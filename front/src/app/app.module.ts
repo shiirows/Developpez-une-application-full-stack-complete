@@ -19,6 +19,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { ArticlesComponent } from './pages/articles/articles.component';
 import {MatCardModule} from '@angular/material/card';
 import { ThemesComponent } from './pages/themes/themes.component';
+import { CreateArticleComponent } from './pages/create-article/create-article.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ThemesComponent } from './pages/themes/themes.component';
     NavbarComponent,
     ArticlesComponent,
     ThemesComponent,
+    CreateArticleComponent,
 
   ],
 
