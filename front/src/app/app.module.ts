@@ -20,6 +20,7 @@ import { ArticlesComponent } from './pages/articles/articles.component';
 import {MatCardModule} from '@angular/material/card';
 import { ThemesComponent } from './pages/themes/themes.component';
 import { CreateArticleComponent } from './pages/create-article/create-article.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { CreateArticleComponent } from './pages/create-article/create-article.co
     ArticlesComponent,
     ThemesComponent,
     CreateArticleComponent,
+    ProfileComponent,
 
   ],
 

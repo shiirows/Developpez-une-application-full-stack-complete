@@ -1,0 +1,97 @@
+.user-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  
+    .user-details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+  
+      input.username-input, input.email-input {
+        width: 300px; // Largeur fixe pour les champs de saisie
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+  
+      .buttons {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+  
+        button {
+          width: 300px; // Largeur fixe pour les boutons
+          padding: 10px;
+          margin-bottom: 15px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+  
+        .save-btn {
+          background-color: #7763C5; // Green
+          color: white;
+        }
+  
+        .logout-btn {
+          color: red;
+          background-color: transparent;
+        }
+      }
+  
+      .separator {
+        width: 300px; // Largeur fixe pour la ligne
+        height: 1px;
+        background-color: #ddd;
+        margin: 20px 0;
+      }
+  
+      .subscription-title {
+        font-size: 18px;
+        color: #333;
+        margin-bottom: 15px;
+      }
+    }
+  
+    .subscriptions {
+      width: 100%;
+  
+      .theme {
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+  
+        h3 {
+          font-size: 20px;
+          margin-bottom: 5px;
+        }
+  
+        p {
+          font-size: 16px;
+          color: #666;
+          margin-bottom: 10px;
+        }
+  
+        .unsubscribe-btn {
+          padding: 5px 10px;
+          border: 2px solid #f44336; // Red
+          background-color: transparent;
+          color: #f44336;
+          border-radius: 5px;
+          cursor: pointer;
+          &:hover {
+            background-color: #f44336;
+            color: white;
+          }
+        }
+      }
+    }
+  }

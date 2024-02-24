@@ -1,0 +1,19 @@
+<div class="user-profile">
+    <div class="user-details">
+        <input type="text" [(ngModel)]="user.username" placeholder="Username" class="username-input"/>
+        <input type="email" [(ngModel)]="user.email" placeholder="Email" class="email-input"/>
+        <div class="buttons">
+            <button class="save-btn">Sauvegarder</button>
+            <button class="logout-btn">Se déconnecter</button>
+        </div>
+        <div class="separator"></div>
+        <div class="subscription-title">Abonnements</div>
+    </div>
+    <div class="subscriptions">
+        <div class="theme" *ngFor="let theme of themes">
+            <h3>{{ theme.title }}</h3>
+            <p>Description: {{ theme.description }}</p>
+            <button class="unsubscribe-btn">Se désabonner</button>
+        </div>
+    </div>
+</div>

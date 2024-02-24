@@ -38,7 +38,7 @@ export class NavbarComponent implements OnInit {
       this.route.navigate(['']);
       this.estConnecter = null;
     } else {
-      this.route.navigate(['/create-article']);
+      this.route.navigate(['/profile']);
     }
     //VERIFICATION DU ROLE DE L'UTILISATEUR EN COUR POUR LUI AFFICHER OU PAS LE BOUTON ADMIN
   }
