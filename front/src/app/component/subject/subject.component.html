@@ -1,0 +1,17 @@
+<div class="grid">
+    <div class="articles-container">
+      <mat-card *ngFor="let subject of subjects" class="article" mat-elevation="4">
+        <mat-card-header>
+          <mat-card-title>{{ subject.name }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="description">
+            <p class="content">{{ subject.description }}</p>
+            <button *ngIf="ButtonSubscription" (click)="addSubject(subject.id)" routerLink="register" mat-raised-button color="Primary" class="subscription-button">S’abonner</button>
+            <button *ngIf="ButtonDesubscribe" (click)="addSubject(subject.id)" routerLink="register" mat-raised-button color="Primary" class="subscription-button">Se désabonner</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  

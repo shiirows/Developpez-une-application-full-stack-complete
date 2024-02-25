@@ -17,12 +17,13 @@ public class UserService {
 
 	public ResponseEntity<MessageResponse> updateUser(UpdateUserRequest updateUserRequest, User user)
 			throws Exception {
-
-		user.setPassword(updateUserRequest.getPassword());
+		
+		user.setUsername(updateUserRequest.getUsername());
 		user.setEmail(updateUserRequest.getEmail());
+		System.out.println(user.getEmail());
 		userRepository.save(user);
-
-		return new ResponseEntity<>(new MessageResponse("your passwords and email have been changed"), HttpStatus.ACCEPTED);
+		
+		return new ResponseEntity<>(new MessageResponse("your username and email have been changed"), HttpStatus.ACCEPTED);
 
 	}
 

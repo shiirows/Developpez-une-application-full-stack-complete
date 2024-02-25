@@ -21,6 +21,7 @@ import {MatCardModule} from '@angular/material/card';
 import { ThemesComponent } from './pages/themes/themes.component';
 import { CreateArticleComponent } from './pages/create-article/create-article.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { SubjectComponent } from './component/subject/subject.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     ThemesComponent,
     CreateArticleComponent,
     ProfileComponent,
+    SubjectComponent,
 
   ],
 
