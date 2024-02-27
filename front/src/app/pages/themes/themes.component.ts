@@ -12,11 +12,26 @@ export class ThemesComponent implements OnInit {
   public ButtonSubscription: boolean = true;
   public ButtonDesubscribe: boolean = false;
 
+  public themes: Subjects [] = [];
+
   constructor(
     private themeService: ThemeService
   ) { }
 
   ngOnInit(): void {
+    this.getSubject()
+  }
+
+  public getSubject() {
+    this.themeService.getSubject().subscribe(
+      (response: any) => {
+        this.themes = response.subject; // Extraire le tableau d'articles de la propriété "article" de la réponse JSON
+        console.log(this.themes);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
 

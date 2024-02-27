@@ -7,12 +7,13 @@ import { User } from '../model/User';
 import { environment } from 'src/environments/environment';
 import { Article } from '../model/Articles';
 import { ArticleRequest } from '../model/ArticleRequest';
+import { Comment } from '../model/Comment';
 
 
 @Injectable({
   providedIn: 'root',
 })
-export class ArticleService {
+export class CommentService {
   public user!: User;
   httpOptions = {
     headers: new HttpHeaders({
@@ -23,23 +24,14 @@ export class ArticleService {
   constructor(private http: HttpClient) {}
 
   //LES DIFFERENTS URL DU BACK
-  public urlApi: string = environment.apiUrl + 'article';
+  public urlApi: string = environment.apiUrl + 'comment';
 
 
   //METHODE POUR RECUPERER LES ARTICLES
-  public getArticle(): Observable<Article> { 
-    return this.http.get<Article>(this.urlApi ,this.httpOptions);
+  public getAllCommente(id: number ): Observable<Comment> { 
+    return this.http.get<Comment>(this.urlApi + "/" + id,this.httpOptions);
   }
 
-  //METHODE POUR RECUPERER UN ARTICLE PAR SON ID
-  public getArticleById(id: number): Observable<Article> {
-    return this.http.get<Article>(this.urlApi + '/' + id, this.httpOptions);
-  }
-
-
-  public createArticle(articleRequest : ArticleRequest) : Observable<Article> {
-    return this.http.post<Article>(this.urlApi, articleRequest, this.httpOptions);
-  }
 
 
 }

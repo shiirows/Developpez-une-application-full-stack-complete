@@ -13,32 +13,20 @@ export class SubjectComponent implements OnInit {
 
   @Input() ButtonSubscription: boolean;
   @Input() ButtonDesubscribe: boolean;
+  @Input() themes: Subjects[] = [];
 
   constructor(
     private themeService: ThemeService
   ) { }
 
   ngOnInit(): void {
-    this.getSubject()
   }
 
-  public getSubject() {
-    this.themeService.getSubject().subscribe(
-      (response: any) => {
-        this.subjects = response.subject; // Extraire le tableau d'articles de la propriété "article" de la réponse JSON
-        console.log(this.subjects);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
 
   public addSubject(id : number){
     this.themeService.addSubject(id).subscribe(
       (response: any) => {
         console.log(response);
-        this.getSubject();
       },
       (error) => {
         console.log(error);

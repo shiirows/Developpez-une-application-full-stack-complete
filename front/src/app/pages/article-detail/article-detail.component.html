@@ -1,0 +1,29 @@
+<div class="article-container" >
+
+    
+    <h1 class="article-title">{{afficheArticle.titre}}</h1>
+    <div class="article-meta">
+        <span class="article-date">Date: {{afficheArticle.createdate}}</span>
+        <span class="article-author">Auteur: {{afficheArticle.username}}</span>
+        <span class="article-themes">Subject: {{afficheArticle.subjectname}}</span>
+    </div>
+    <div class="article-content">
+        <p>{{afficheArticle.content}}</p>
+    </div>
+    <hr class="divider">
+    <div class="comments-section">
+        <h2 class="comments-title">Commentaires</h2>
+        <div class="comment"  *ngFor="let comment of afficheComment">
+            <div class="username-section">
+                <span class="username">{{comment.username}}: </span>
+            </div>
+            <div class="content-section">
+                <span class="comment-content">{{comment.comment}}</span>
+            </div>
+        </div>
+        <div class="comment-form">
+            <input type="text" placeholder="Ecrivez ici votre commentaire">
+            <button type="submit">Envoyer</button>
+        </div>
+    </div>
+</div>

@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { ThemeService } from 'src/app/common/SubjectService';
 import { UserService } from 'src/app/common/UserService';
+import { Subjects } from 'src/app/model/Subjects';
 import { User } from 'src/app/model/User';
 
 @Component({
@@ -18,7 +19,7 @@ export class ProfileComponent implements OnInit {
     private subjectService : ThemeService
   ) { }
 
-  public themes: any[] = [];
+  public themes: Subjects[] = [];
   public user: User 
   public userForm: any;
   public ButtonSubscription: boolean = false;
@@ -27,6 +28,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
 this.getUser();
+this.getFavorite();
   }
 
   public initForm() {
@@ -60,7 +62,7 @@ this.userService.getUser().subscribe(
   public getFavorite() {
     this.subjectService.getFavoris().subscribe(
       (response: any) => {
-        this.themes = response; // Extraire le tableau d'articles de la propriété "article" de la réponse JSON
+        this.themes = response.subscription; // Extraire le tableau d'articles de la propriété "article" de la réponse JSON
         console.log(this.themes);
       },
       (error) => {
@@ -88,6 +90,12 @@ this.userService.updateUser(user).subscribe(
 
   }     
 );
+  }
+
+  public deconnexion () {
+    
+    
+
   }
 
 

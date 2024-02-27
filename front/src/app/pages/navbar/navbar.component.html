@@ -9,9 +9,10 @@
     <button *ngIf="estConnecter != null" mat-icon-button class="burger-menu" [matMenuTriggerFor]="menu">
       <mat-icon>menu</mat-icon>
     </button>
-    <div *ngIf="estConnecter != null" class="profile-picture">
+    <a *ngIf="estConnecter != null" class="profile-picture" href="/profile">
       <img src="/assets/pictureprofile.png" alt="Photo de profil">
-    </div>
+    
+    </a>
     <mat-menu  #menu="matMenu">
       <button [routerLink]="['/articles']" mat-menu-item>Article</button>
       <button [routerLink]="['/themes']"  mat-menu-item>Théme</button>

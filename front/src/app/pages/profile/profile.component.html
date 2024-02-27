@@ -7,21 +7,15 @@
 
         <div class="buttons">
             <button type="submit" class="save-btn">Sauvegarder</button>
-            <button class="logout-btn">Se déconnecter</button>
+            <button (click)="deconnexion" class="logout-btn">Se déconnecter</button>
         </div>
     
         <div class="separator"></div>
         <div class="subscription-title">Abonnements</div>
     </div>
 </form>
-    <div class="subscriptions">
-        <div class="theme" *ngFor="let theme of themes">
-            <h3>{{ theme.title }}</h3>
-            <p>Description: {{ theme.description }}</p>
-            <button class="unsubscribe-btn">Se désabonner</button>
-        </div>
-    </div>
+
     
 </div>
 
-<app-subject [ButtonSubscription]="ButtonSubscription" [ButtonDesubscribe]="ButtonDesubscribe"  > </app-subject>
+<app-subject [themes]="themes" [ButtonSubscription]="ButtonSubscription" [ButtonDesubscribe]="ButtonDesubscribe"  > </app-subject>

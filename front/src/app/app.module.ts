@@ -22,6 +22,8 @@ import { ThemesComponent } from './pages/themes/themes.component';
 import { CreateArticleComponent } from './pages/create-article/create-article.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SubjectComponent } from './component/subject/subject.component';
+import { ArticleComponent } from './component/article/article.component';
+import { ArticleDetailComponent } from './pages/article-detail/article-detail.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { SubjectComponent } from './component/subject/subject.component';
     CreateArticleComponent,
     ProfileComponent,
     SubjectComponent,
+    ArticleComponent,
+    ArticleDetailComponent,
 
   ],
 
