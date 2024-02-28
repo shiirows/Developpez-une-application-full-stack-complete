@@ -37,7 +37,6 @@ public class CommentController {
 			@Valid @RequestBody CommentRequest commentRequest) {
 
 		try {
-
 			return new ResponseEntity<>(commentService.createComment(config.authentification(), commentRequest, id),
 					HttpStatus.OK);
 		} catch (Exception e) {

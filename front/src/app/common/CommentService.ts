@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 import { Article } from '../model/Articles';
 import { ArticleRequest } from '../model/ArticleRequest';
 import { Comment } from '../model/Comment';
+import { CommentRequest } from '../model/CommentRequest';
 
 
 @Injectable({
@@ -30,6 +31,11 @@ export class CommentService {
   //METHODE POUR RECUPERER LES ARTICLES
   public getAllCommente(id: number ): Observable<Comment> { 
     return this.http.get<Comment>(this.urlApi + "/" + id,this.httpOptions);
+  }
+
+  //METHODE POUR AJOUTER UN COMMENTAIRE
+  public addComment(comment : String, id: Number): Observable<any> {
+    return this.http.post<any>(this.urlApi + "/" + id, { comment }, this.httpOptions);
   }
 
 

@@ -1,9 +1,7 @@
 <div class="article-container" >
-
-    
     <h1 class="article-title">{{afficheArticle.titre}}</h1>
     <div class="article-meta">
-        <span class="article-date">Date: {{afficheArticle.createdate}}</span>
+        <span class="article-date">Date: {{ afficheArticle.createdate | date}}</span>
         <span class="article-author">Auteur: {{afficheArticle.username}}</span>
         <span class="article-themes">Subject: {{afficheArticle.subjectname}}</span>
     </div>
@@ -22,8 +20,16 @@
             </div>
         </div>
         <div class="comment-form">
-            <input type="text" placeholder="Ecrivez ici votre commentaire">
-            <button type="submit">Envoyer</button>
+            <form [formGroup]="commentForm" (ngSubmit)="onSubmit()" class="form">
+          
+            <textarea id="comment" formControlName="comment" name="comment" placeholder="Ecrivez ici votre commentaire" required></textarea>
+            <button type="submit">
+                <mat-icon>send</mat-icon>
+                <!-- Vous pouvez ajuster la taille de l'icône si nécessaire -->
+                <!-- <mat-icon style="font-size: 24px;">send</mat-icon> -->
+            
+            </button>
+            </form>
         </div>
     </div>
 </div>

@@ -41,5 +41,10 @@ export class ArticleService {
     return this.http.post<Article>(this.urlApi, articleRequest, this.httpOptions);
   }
 
+  //METHODE POUR RECUPERER LES ARTICLES PAR THEME
+  public getArticleByTheme(id: number): Observable<Article> {
+    return this.http.get<Article>(this.urlApi + '/subject/' + id, this.httpOptions);
+  }
+
 
 }

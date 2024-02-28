@@ -24,6 +24,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { SubjectComponent } from './component/subject/subject.component';
 import { ArticleComponent } from './component/article/article.component';
 import { ArticleDetailComponent } from './pages/article-detail/article-detail.component';
+import { ArticleSubjectComponent } from './pages/article-subject/article-subject.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ArticleDetailComponent } from './pages/article-detail/article-detail.co
     SubjectComponent,
     ArticleComponent,
     ArticleDetailComponent,
+    ArticleSubjectComponent,
 
   ],
 

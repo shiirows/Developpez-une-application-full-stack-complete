@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ThemeService } from 'src/app/common/SubjectService';
 import { Subjects } from 'src/app/model/Subjects';
 
@@ -16,12 +17,12 @@ export class SubjectComponent implements OnInit {
   @Input() themes: Subjects[] = [];
 
   constructor(
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    private route: Router,
   ) { }
 
   ngOnInit(): void {
   }
-
 
   public addSubject(id : number){
     this.themeService.addSubject(id).subscribe(
@@ -32,7 +33,10 @@ export class SubjectComponent implements OnInit {
         console.log(error);
       }
     );
+  }
 
+  public getArticle(id: number) {
+    this.route.navigate(['/article-subject', id]);
   }
 
 }

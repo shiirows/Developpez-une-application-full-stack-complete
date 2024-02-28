@@ -6,7 +6,7 @@ import { TokenService } from '../common/TokenService';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class noAuthGuard implements CanActivate {
   
   constructor
   (private tokenService: TokenService) { } 
@@ -16,7 +16,7 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const token = this.tokenService.getUser().token;
-    if (token) {
+    if (!token) {
       return true;
     }
     return false;

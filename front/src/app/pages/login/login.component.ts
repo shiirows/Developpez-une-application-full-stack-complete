@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AuthentificationService } from '../../common/AuthentificationService';
 import { TokenService } from '../../common/TokenService';
 
@@ -10,7 +11,7 @@ import { TokenService } from '../../common/TokenService';
   styleUrls: ['./login.component.scss'],
 })
 
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   constructor(
     private formB: FormBuilder,
     private service: AuthentificationService,
@@ -23,11 +24,15 @@ export class LoginComponent implements OnInit {
   public loginForm: any;
   public roles: string[] = [];
 
+  private signinSubscription: Subscription;
+
   ngOnInit(): void {
     this.initForm();
+  }
 
-    if (this.tokenService.getUser().userInfo != null) {
-      this.route.navigate(['']);
+  ngOnDestroy(): void {
+    if (this.signinSubscription) {
+      this.signinSubscription.unsubscribe();
     }
   }
 
@@ -49,23 +54,20 @@ export class LoginComponent implements OnInit {
     let email: string = this.loginForm.get('email').value;
     let password: string = this.loginForm.get('password').value;
 
-    // APPEL AU SERVICE POUR FAIRE APPAEL AU BACK POUR VERIFIER L'UTILISATEUR
-    this.service.signin(email, password).subscribe(
+    this.signinSubscription = this.service.signin(email, password).subscribe(
       (param: any) => {
         this.tokenService.saveUser(param);
-        //ENREGISTREMENT DU TOKEN DANS LE STORAGE
-console.log(param.token);
         this.tokenService.saveToken(param.token);
-        console.log(this.tokenService.getUser().user);
         window.location.reload();
-        this.route.navigate(['']);
+        this.route.navigate(['/articles']);
       },
       (error) => {
         this.erreur = true;
       }
     );
   }
- public navigateInscription() {
+
+  public navigateInscription() {
     this.route.navigate(['/inscription']);
   }
 }

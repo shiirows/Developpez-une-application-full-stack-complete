@@ -17,13 +17,39 @@ public class UserService {
 
 	public ResponseEntity<MessageResponse> updateUser(UpdateUserRequest updateUserRequest, User user)
 			throws Exception {
-		
-		user.setUsername(updateUserRequest.getUsername());
-		user.setEmail(updateUserRequest.getEmail());
-		System.out.println(user.getEmail());
-		userRepository.save(user);
-		
-		return new ResponseEntity<>(new MessageResponse("your username and email have been changed"), HttpStatus.ACCEPTED);
+        boolean usernameChanged = false;
+        boolean emailChanged = false;
+
+      
+        // Vérifiez si le nom d'utilisateur a été modifié
+        if (!user.getUsername().equals(updateUserRequest.getUsername())) {
+            user.setUsername(updateUserRequest.getUsername());
+            usernameChanged = true;
+            System.out.println("change name");
+        }
+
+        // Vérifiez si l'email a été modifié
+        if (!user.getEmail().equals(updateUserRequest.getEmail())) {
+            user.setEmail(updateUserRequest.getEmail());
+            emailChanged = true;
+            System.out.println("change mail");
+        }
+
+        // Enregistrez les modifications dans la base de données
+        userRepository.save(user);
+
+        String message = "Your ";
+        if (usernameChanged && emailChanged) {
+            message += "username and email have been changed";
+        } else if (usernameChanged) {
+            message += "username has been changed";
+        } else if (emailChanged) {
+            message += "email has been changed";
+        } else {
+            message += "profile has been updated"; // Aucun changement détecté
+        }
+
+        return new ResponseEntity<>(new MessageResponse(message), HttpStatus.ACCEPTED);
 
 	}
 

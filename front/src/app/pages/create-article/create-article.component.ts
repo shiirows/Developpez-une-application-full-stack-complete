@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { ArticleService } from 'src/app/common/ArticleService';
 import { ThemeService } from 'src/app/common/SubjectService';
 import { ArticleRequest } from 'src/app/model/ArticleRequest';
@@ -11,15 +12,17 @@ import { Subjects } from 'src/app/model/Subjects';
   templateUrl: './create-article.component.html',
   styleUrls: ['./create-article.component.scss']
 })
-export class CreateArticleComponent implements OnInit {
+export class CreateArticleComponent implements OnInit, OnDestroy {
+
+  private themeSubscription: Subscription;
+  private articleSubscription: Subscription;
 
   constructor(    
     private formB: FormBuilder,
     private route: Router,
     private themeService: ThemeService,
     private articleservice: ArticleService
-
-    ) { }
+  ) { }
 
   public articleForm: any;
   public subjects: Subjects [] = [];
@@ -30,10 +33,19 @@ export class CreateArticleComponent implements OnInit {
     this.getSubject();
   }
 
+  ngOnDestroy(): void {
+    if (this.themeSubscription) {
+      this.themeSubscription.unsubscribe();
+    }
+    if (this.articleSubscription) {
+      this.articleSubscription.unsubscribe();
+    }
+  }
+
   public getSubject() {
-    this.themeService.getSubject().subscribe(
+    this.themeSubscription = this.themeService.getSubject().subscribe(
       (response: any) => {
-        this.subjects = response.subject; // Extraire le tableau d'articles de la propriété "article" de la réponse JSON
+        this.subjects = response.subject;
         console.log(this.subjects);
       },
       (error) => {
@@ -44,11 +56,8 @@ export class CreateArticleComponent implements OnInit {
 
   onSubjectChange(event: any) {
     this.selectedSubject = event.target.value;
-    // Use this.selectedSubject to access the ID of the selected subject
     console.log('Selected subject ID:', this.selectedSubject);
   }
-
-
 
   public initForm() {
     this.articleForm = this.formB.group({
@@ -64,24 +73,20 @@ export class CreateArticleComponent implements OnInit {
   }
 
   public onSubmit(){
-
     const titre : string = this.articleForm.get('title').value;
     const content : string = this.articleForm.get('content').value;
     const idSubject = this.selectedSubject;
 
     let articleRequest : ArticleRequest = new ArticleRequest(idSubject, content, titre);
     console.log(articleRequest);
-    this.articleservice.createArticle(articleRequest).subscribe(
+
+    this.articleSubscription = this.articleservice.createArticle(articleRequest).subscribe(
       (response: any) => {
-        console.log(response);
         this.route.navigate(['/articles']);
       },
       (error) => {
         console.log(error);
       }
     );
-  
-
   }
-
 }
