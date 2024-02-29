@@ -1,0 +1,13 @@
+com.openclassrooms.mddapi
+com.openclassrooms.mddapi.configuration
+com.openclassrooms.mddapi.controller
+com.openclassrooms.mddapi.convert
+com.openclassrooms.mddapi.DTO
+com.openclassrooms.mddapi.jwt
+com.openclassrooms.mddapi.model
+com.openclassrooms.mddapi.repository
+com.openclassrooms.mddapi.request
+com.openclassrooms.mddapi.response
+com.openclassrooms.mddapi.security
+com.openclassrooms.mddapi.service
+com.openclassrooms.mddapi.userdetails
