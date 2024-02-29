@@ -11,12 +11,12 @@ import { Article } from 'src/app/model/Articles';
 })
 export class ArticlesComponent implements OnInit, OnDestroy {
 
-  public articles: Article [] = [];
+  public articles: Article[] = [];
   private articleSubscription: Subscription;
 
   constructor(
     private articleService: ArticleService,
-    private router : Router
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -29,17 +29,25 @@ export class ArticlesComponent implements OnInit, OnDestroy {
     }
   }
 
-  public getArticle():void {
+  public getArticle(): void {
     this.articleSubscription = this.articleService.getArticle().subscribe(
       (response: any) => {
         this.articles = response.article;
+
+        // Trier les articles par date (les plus récents d'abord)
+        this.articles.sort((a: Article, b: Article) => {
+          const dateA = new Date(a.createdate);
+          const dateB = new Date(b.createdate);
+          return dateB.getTime() - dateA.getTime(); // Trie les articles du plus récent au plus ancien
+        });
       },
       (error) => {
+        // Gérer les erreurs
       }
     );
   }
 
-  public onCreateArticle():void {
+  public onCreateArticle(): void {
     this.router.navigate(['create-article']);
   }
 }
