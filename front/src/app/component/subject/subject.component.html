@@ -1,17 +1,22 @@
 <div class="grid">
-    <div class="articles-container">
-      <mat-card *ngFor="let subject of themes" class="article" mat-elevation="4" (click)="getArticle(subject.id)" >
-        <mat-card-header>
-          <mat-card-title>{{ subject.name }}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <div class="description">
-            <p class="content">{{ subject.description }}</p>
-            <button *ngIf="ButtonSubscription" (click)="addSubject(subject.id)" routerLink="register" mat-raised-button color="Primary" class="subscription-button">S’abonner</button>
-            <button *ngIf="ButtonDesubscribe" (click)="addSubject(subject.id)" routerLink="register" mat-raised-button color="Primary" class="subscription-button">Se désabonner</button>
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </div>
+  <div *ngIf="showTemporaryMessage" class="temporary-message">
+    {{ temporaryMessage }}
   </div>
-  
+
+  <div class="articles-container">
+    <mat-card *ngFor="let subject of themes" class="article" mat-elevation="4">
+      <mat-card-header>
+        <mat-card-title>{{ subject.name }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="description">
+          <p class="content" (click)="getArticle(subject.id)">{{ subject.description }}</p>
+          <button *ngIf="ButtonSubscription" (click)="addSubject(subject.id)" mat-raised-button color="primary"
+            class="subscription-button">S’abonner</button>
+          <button *ngIf="ButtonDesubscribe" (click)="deleteSubject(subject.id)" mat-raised-button color="primary"
+            class="subscription-button">Se désabonner</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

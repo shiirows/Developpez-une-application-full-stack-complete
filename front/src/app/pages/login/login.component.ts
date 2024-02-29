@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
   }
 
-  public initForm() {
+  public initForm():void {
     this.loginForm = this.formB.group({
       email: ['', [Validators.required, Validators.minLength(3)]],
       password: [
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     });
   }
 
-  public onSubmit() {
+  public onSubmit():void {
     let email: string = this.loginForm.get('email').value;
     let password: string = this.loginForm.get('password').value;
 

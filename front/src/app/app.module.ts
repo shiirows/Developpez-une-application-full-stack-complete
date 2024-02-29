@@ -25,6 +25,8 @@ import { SubjectComponent } from './component/subject/subject.component';
 import { ArticleComponent } from './component/article/article.component';
 import { ArticleDetailComponent } from './pages/article-detail/article-detail.component';
 import { ArticleSubjectComponent } from './pages/article-subject/article-subject.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [
@@ -57,7 +59,8 @@ import { ArticleSubjectComponent } from './pages/article-subject/article-subject
     MatInputModule,
     MatIconModule,
     MatMenuModule,
-    MatCardModule
+    MatCardModule,
+
 
 
   ],

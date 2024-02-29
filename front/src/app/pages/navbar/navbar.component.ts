@@ -33,7 +33,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
   }
 
-  toggleMenu() {
+  toggleMenu() :void{
     if (this.menuTrigger && this.menuTrigger.menuOpen) {
       this.menuTrigger.closeMenu();
     } else if (this.menuTrigger) {
@@ -41,7 +41,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
   }
 
-  public userAfiche() {
+  public userAfiche():void {
     this.userSubscription = this.serviceToken.getUser().subscribe(
       (user) => {
         if (user.token == null) {
@@ -50,7 +50,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
         }
       },
       (error) => {
-        console.log(error);
       }
     );
   }

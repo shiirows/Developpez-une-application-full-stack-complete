@@ -40,7 +40,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.unsubscribe$.complete(); // Indiquez que le sujet est terminé
   }
 
-  public getUser() {
+  public getUser():void {
     this.userService
       .getUser()
       .pipe(takeUntil(this.unsubscribe$)) // Utilisez takeUntil pour détruire l'abonnement lors de la destruction du composant
@@ -61,7 +61,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
       );
   }
 
-  public getFavorite() {
+  public getFavorite():void {
     this.subjectService
       .getFavoris()
       .pipe(takeUntil(this.unsubscribe$))
@@ -73,7 +73,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
       );
   }
 
-  public initForm() {
+  public initForm():void {
     this.userForm = this.formB.group({
       username: [
         '',
@@ -86,7 +86,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     });
   }
 
-  public onSubmit() {
+  public onSubmit() :void{
     const username: string = this.userForm.get('username').value;
     const email: string = this.userForm.get('email').value;
 
@@ -124,7 +124,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
       );
   }
 
-  public deconnexion() {
+  public deconnexion():void {
     window.sessionStorage.clear();
     window.location.reload();
     this.route.navigate(['']);

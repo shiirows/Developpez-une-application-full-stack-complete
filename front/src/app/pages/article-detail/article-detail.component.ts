@@ -43,7 +43,7 @@ export class ArticleDetailComponent implements OnInit, OnDestroy {
     }
   }
 
-  public getArticle() {
+  public getArticle():void {
     this.articleSubscription = this.route.params.subscribe((params: ParamMap) => {
       if (params['id']) {
         this.articleService.getArticleById(params['id']).subscribe(
@@ -58,7 +58,7 @@ export class ArticleDetailComponent implements OnInit, OnDestroy {
     });
   }
 
-  public getComment() {
+  public getComment():void {
     this.commentSubscription = this.route.params.subscribe((params: ParamMap) => {
       if (params['id']) {
         this.commentService.getAllCommente(params['id']).subscribe(
@@ -73,13 +73,13 @@ export class ArticleDetailComponent implements OnInit, OnDestroy {
     });
   }
 
-  public initForm() {
+  public initForm():void {
     this.commentForm = this.formB.group({
       comment: ['', [Validators.required, Validators.minLength(3)]],
     });
   }
 
-  public onSubmit() {
+  public onSubmit():void {
     const comment: string = this.commentForm.get('comment').value;
     const idArticle = this.afficheArticle.id;
     this.commentService.addComment(comment, idArticle).subscribe(
@@ -87,7 +87,6 @@ export class ArticleDetailComponent implements OnInit, OnDestroy {
         this.getComment();
       },
       (error) => {
-        console.log(error);
       }
     );
   }

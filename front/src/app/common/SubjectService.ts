@@ -40,5 +40,9 @@ export class ThemeService {
     return this.http.get<Subjects>(this.urlApi + "favoris", this.httpOptions);
   }
 
+  public deleteSubject(id:Number) : Observable<Subjects> {
+    return this.http.delete<Subjects>(this.urlApi + "favoris/" + id, this.httpOptions);
+  }
+
 
 }

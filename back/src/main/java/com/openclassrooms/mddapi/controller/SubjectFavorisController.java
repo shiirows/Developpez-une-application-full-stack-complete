@@ -28,8 +28,8 @@ public class SubjectFavorisController {
 	public ResponseEntity<?> createSubscription(@PathVariable Long id) {
 
 		try {
-			subjectService.createSubscription(id, config.authentification());
-			return new ResponseEntity<>(HttpStatus.OK);
+			;
+			return new ResponseEntity<>(subjectService.createSubscription(id, config.authentification()),HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.CONFLICT);
 

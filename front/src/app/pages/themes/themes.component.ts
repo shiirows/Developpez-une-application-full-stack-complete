@@ -28,17 +28,15 @@ export class ThemesComponent implements OnInit, OnDestroy {
     this.unsubscribe$.complete(); // Indiquez que le sujet est terminé
   }
 
-  public getSubject() {
+  public getSubject():void {
     this.themeService
       .getSubject()
       .pipe(takeUntil(this.unsubscribe$)) // Utilisez takeUntil pour détruire l'abonnement lors de la destruction du composant
       .subscribe(
         (response: any) => {
           this.themes = response.subject;
-          console.log(this.themes);
         },
         (error) => {
-          console.log(error);
         }
       );
   }

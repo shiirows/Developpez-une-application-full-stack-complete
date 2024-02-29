@@ -42,24 +42,21 @@ export class CreateArticleComponent implements OnInit, OnDestroy {
     }
   }
 
-  public getSubject() {
+  public getSubject():void {
     this.themeSubscription = this.themeService.getSubject().subscribe(
       (response: any) => {
         this.subjects = response.subject;
-        console.log(this.subjects);
       },
       (error) => {
-        console.log(error);
       }
     );
   }
 
-  onSubjectChange(event: any) {
+  onSubjectChange(event: any):void {
     this.selectedSubject = event.target.value;
-    console.log('Selected subject ID:', this.selectedSubject);
   }
 
-  public initForm() {
+  public initForm():void {
     this.articleForm = this.formB.group({
       title: ['', [Validators.required, Validators.minLength(3)]],
       content: [
@@ -72,20 +69,18 @@ export class CreateArticleComponent implements OnInit, OnDestroy {
     });
   }
 
-  public onSubmit(){
+  public onSubmit():void{
     const titre : string = this.articleForm.get('title').value;
     const content : string = this.articleForm.get('content').value;
     const idSubject = this.selectedSubject;
 
     let articleRequest : ArticleRequest = new ArticleRequest(idSubject, content, titre);
-    console.log(articleRequest);
 
     this.articleSubscription = this.articleservice.createArticle(articleRequest).subscribe(
       (response: any) => {
         this.route.navigate(['/articles']);
       },
       (error) => {
-        console.log(error);
       }
     );
   }

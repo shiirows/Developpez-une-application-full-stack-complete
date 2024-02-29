@@ -33,8 +33,6 @@ export class AuthentificationService {
 
   //METHODE POUR LES CONNEXION
   public signin(email: string, password: string): Observable<any> {
-    console.log(email);
-    console.log(password);
     return this.http.post(this.urlApi + 'login',{ email, password },this.httpOptions);
   }
 

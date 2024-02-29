@@ -1,5 +1,12 @@
+
+
 <div class="article-container" >
+    <div class="titre">
+    <a routerLink="/articles" class="back-button">
+        <mat-icon aria-label="Back">arrow_back</mat-icon>
+      </a>
     <h1 class="article-title">{{afficheArticle.titre}}</h1>
+</div>
     <div class="article-meta">
         <span class="article-date">Date: {{ afficheArticle.createdate | date}}</span>
         <span class="article-author">Auteur: {{afficheArticle.username}}</span>

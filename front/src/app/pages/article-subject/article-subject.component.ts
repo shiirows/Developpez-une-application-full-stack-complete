@@ -24,7 +24,7 @@ export class ArticleSubjectComponent implements OnInit {
     this.getArticle();
   }
 
-  public getArticle() {
+  public getArticle():void {
     this.articleSubscription = this.route.params.subscribe((params: ParamMap) => {
       if (params['id']) {
         this.articleService.getArticleByTheme(params['id']).subscribe(

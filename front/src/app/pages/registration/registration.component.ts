@@ -37,7 +37,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
-  public initForm() {
+  public initForm() :void{
     this.inscriptionForm = this.formB.group({
       username: [
         '',
@@ -61,7 +61,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
     });
   }
 
-  public onSubmit() {
+  public onSubmit() :void{
     const username: string = this.inscriptionForm.get('username').value;
     const email: string = this.inscriptionForm.get('email').value;
     const password: string = this.inscriptionForm.get('password').value;
@@ -86,7 +86,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
       );
   }
 
-  public navigateConnexion() {
+  public navigateConnexion():void {
     this.route.navigate(['/login']);
   }
 }

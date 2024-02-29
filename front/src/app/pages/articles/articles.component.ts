@@ -29,19 +29,17 @@ export class ArticlesComponent implements OnInit, OnDestroy {
     }
   }
 
-  public getArticle() {
+  public getArticle():void {
     this.articleSubscription = this.articleService.getArticle().subscribe(
       (response: any) => {
         this.articles = response.article;
-        console.log(this.articles);
       },
       (error) => {
-        console.log(error);
       }
     );
   }
 
-  public onCreateArticle() {
+  public onCreateArticle():void {
     this.router.navigate(['create-article']);
   }
 }
